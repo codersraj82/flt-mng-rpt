@@ -1,0 +1,18 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: |
+      npx react-native init app --version latest --skip-install
+      cd app && npm install
+  - command: |
+      cd app
+      npm start
+ports:
+  - port: 8081 # Metro Bundler
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - dsznajder.es7-react-js-snippets
+    - msjsdiag.debugger-for-chrome
