@@ -3,16 +3,14 @@ image:
 
 tasks:
   - init: |
-      npx react-native init app --version latest --skip-install
-      cd app && npm install
+      # Only run init if app folder doesn't exist
+      if [ ! -d "app" ]; then
+        npx react-native init app --version latest --skip-install
+        cd app && npm install
+      fi
   - command: |
       cd app
       npm start
 ports:
-  - port: 8081 # Metro Bundler
+  - port: 8081
     onOpen: open-preview
-
-vscode:
-  extensions:
-    - dsznajder.es7-react-js-snippets
-    - msjsdiag.debugger-for-chrome
