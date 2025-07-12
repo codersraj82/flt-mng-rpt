@@ -1,9 +1,8 @@
-# .gitpod.Dockerfile
 FROM gitpod/workspace-full:latest
 
 USER root
 
-# Install Java JDK 17
+# Install Java JDK
 RUN apt-get update && apt-get install -y openjdk-17-jdk wget unzip lib32stdc++6 lib32z1
 
 # Set environment variables
